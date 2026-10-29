@@ -1,0 +1,11 @@
+entity_th,brand,year_be,year_ce,revenue_mb,net_profit_mb,source
+บจก. ช้อปปี้ (ประเทศไทย),Shopee,2565,2022,21709,2380,DBD DataWarehouse+ / ประชาชาติธุรกิจ
+บจก. ช้อปปี้ (ประเทศไทย),Shopee,2566,2023,29476,2165,DBD DataWarehouse+ / ประชาชาติธุรกิจ
+บจก. ช้อปปี้ (ประเทศไทย),Shopee,2567,2024,49964,4630,DBD DataWarehouse+ / ลงทุนแมน
+บจก. ช้อปปี้ (ประเทศไทย),Shopee,2568,2025,88387,2756,DBD DataWarehouse+ / ประชาชาติธุรกิจ
+บจก. เอสพีเอ็กซ์ เอ็กซ์เพรส (ประเทศไทย),SPX Express,2566,2023,16608,35,DBD DataWarehouse+ / ลงทุนแมน
+บจก. เอสพีเอ็กซ์ เอ็กซ์เพรส (ประเทศไทย),SPX Express,2567,2024,23499,469,DBD DataWarehouse+ / ลงทุนแมน
+บจก. ลาซาด้า,Lazada,2565,2022,20675,413,DBD DataWarehouse+ / MGR Online
+บจก. ลาซาด้า,Lazada,2566,2023,21470,604,DBD DataWarehouse+ / Marketeer
+บจก. ลาซาด้า,Lazada,2567,2024,28291,836,DBD DataWarehouse+ / Marketeer
+บจก. ติ๊กต๊อก ช็อป (ประเทศไทย),TikTok Shop,2567,2024,12066,-3678,DBD DataWarehouse+ / Marketing Oops

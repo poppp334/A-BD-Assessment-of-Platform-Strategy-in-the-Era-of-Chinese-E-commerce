@@ -1,0 +1,5 @@
+option_id,option_name,short_label,feasibility_score,impact_score,investment_mb,risk_score,risk_label
+1,(1) ป้องกันฐาน Intent-based (Search + Mall + SPX),(1) Protect Intent Base,8.5,8.8,1200,2.5,ความเสี่ยงต่ำ (Low)
+2,(2) Selective Shoppertainment & Affiliate,(2) Selective Affiliate/Live,7.0,7.6,1800,5.2,ความเสี่ยงปานกลาง (Medium)
+3,(3) Regulatory Tailwind (Local SME + OTOP 4%),(3) Regulatory & OTOP Moat,8.8,7.9,850,2.0,ความเสี่ยงต่ำ (Low)
+4,(4) รุก Quick Commerce เต็มรูปแบบ,(4) Full Quick Commerce,3.4,6.4,3500,8.5,ความเสี่ยงสูง (High)

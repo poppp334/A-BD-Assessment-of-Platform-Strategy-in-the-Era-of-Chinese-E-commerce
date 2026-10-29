@@ -1,0 +1,4 @@
+seller_tier,commission_pct,ads_pct,logistics_pct,promo_fee_pct,payment_fee_pct,total_cost_pct,seller_net_margin_pct
+ผู้ขายรายเล็ก (Micro/Small SME),12.5,8.5,6.0,4.5,3.21,34.71,8.0
+ผู้ขายรายกลาง (Mid-tier SME),10.7,6.5,4.8,3.8,3.21,29.01,13.5
+ผู้ขายรายใหญ่ (Large / Mall),8.5,4.5,3.5,2.5,3.21,22.21,20.0

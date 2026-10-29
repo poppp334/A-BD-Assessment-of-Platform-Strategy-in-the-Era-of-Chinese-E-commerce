@@ -1,0 +1,4 @@
+rec_id,rec_title,start_month,duration_months,end_month,priority_level,expected_impact_index,key_kpi
+Rec 1,1. ป้องกันฐาน Intent-based + ยกระดับ SPX Express,0,12,12,Priority 1: Core Defense,92,Retention ของกลุ่ม Mall/Search & เวลาจัดส่งเฉลี่ย
+Rec 2,2. เปลี่ยนกฎรัฐเป็น Moat (ปั้น OTOP 4% + Local SME),2,12,14,Priority 2: Structural Moat,84,จำนวนร้าน OTOP/SME ใหม่ & สัดส่วน Local GMV
+Rec 3,3. รุก Affiliate & Live แบบเจาะจงหมวด Margin สูง,4,14,18,Priority 3: Selective Attack,71,ROI ของงบอุดหนุน Live & Take-rate สุทธิ
