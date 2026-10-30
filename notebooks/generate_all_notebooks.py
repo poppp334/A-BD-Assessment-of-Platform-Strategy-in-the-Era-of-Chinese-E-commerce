@@ -289,8 +289,19 @@ plt.savefig("../charts/02_1_revenue_vs_profit_scatter.png")
 plt.show()"""
     ),
     new_markdown_cell(
-        """### กราฟ 2.2 — Threat Positioning Matrix (2x2)
-- **สื่ออะไร:** แยกแยะศัตรูตามระดับภัยคุกคามต่อ GMV และความยากในการตอบโต้ — **TikTok Shop** อยู่ใน Quadrant *"Structural Threat"* (ต้องจัดการเป็นลำดับแรก) ส่วน **Temu** เป็น *"Price Disruptor"* ที่ยังเล็กในแง่ GMV แต่กดดัน Margin ทั้งตลาด"""
+        """### กราฟ 2.2 — Threat Positioning Matrix (2x2) & เกณฑ์การให้คะแนน (Scoring Rubric)
+- **สื่ออะไร:** แยกแยะศัตรูตามระดับภัยคุกคามต่อ GMV และความยากในการตอบโต้ — **TikTok Shop** อยู่ใน Quadrant *"Structural Threat"* (ต้องจัดการเป็นลำดับแรก) ส่วน **Temu** เป็น *"Price Disruptor"* ที่ยังเล็กในแง่ GMV แต่กดดัน Margin ทั้งตลาด
+
+| มิติการประเมิน (Scoring Dimension) | น้ำหนัก (Weight) | TikTok Shop | Temu | Lazada | ผู้เล่น Local |
+|---|---|---|---|---|---|
+| **1. แกน X: ระดับภัยคุกคามต่อ GMV (GMV Threat Score)** | **100%** | **9.0** | **4.2** | **5.8** | **2.2** |
+| - ขนาดส่วนแบ่งตลาดปัจจุบัน (Current GMV Share) | 50% | 9.5 (48% share) | 2.0 (<3% share) | 6.5 (7% share) | 1.5 (<1% share) |
+| - อัตราการเติบโตและโมเมนตัม (YoY Growth Velocity) | 30% | 9.5 (+53.4% YoY) | 7.5 (ดาวน์โหลด >10M) | 3.0 (-30.8% YoY) | 3.0 (ทรงตัว) |
+| - การทับซ้อนของหมวดสินค้าหลัก (Category Overlap) | 20% | 7.0 (Fashion/Beauty/FMCG) | 4.8 (Non-brand/Long-tail) | 8.2 (Mall/Electronics) | 2.8 (Niche Home/IT) |
+| **2. แกน Y: ความยากในการตอบโต้ของ Shopee (Counter Difficulty)** | **100%** | **8.4** | **6.8** | **3.5** | **2.4** |
+| - ความแตกต่างของพฤติกรรมผู้ใช้ (Behavioral Shift: Impulse vs Intent) | 45% | 9.2 (Algorithmic Video/Live) | 5.5 (Gamified Factory Direct) | 2.5 (Catalog Search เดียวกัน) | 2.0 (Search ปกติ) |
+| - ต้นทุนที่ Shopee ต้องจ่ายหากตอบโต้ตรงๆ (Cost to Match Subsidy) | 35% | 8.5 (ต้องเผางบ Live/Affiliate สูง) | 8.5 (กดราคาแข่งโรงงานจีนไม่ได้) | 4.0 (ใช้ Economy of Scale ชนะได้) | 2.5 (ไม่ต้องใช้งบเพิ่ม) |
+| - ความยั่งยืนของสายป่านคู่แข่ง (Parent Backing & Runway) | 20% | 6.5 (ByteDance หนุนเต็มที่) | 6.8 (PDD Supply Chain จีน) | 4.8 (Alibaba เน้นคุมกำไร) | 3.0 (ทุนจำกัด) |"""
     ),
     new_code_cell(
         """fig, ax = plt.subplots(figsize=(10.8, 6.4))
@@ -495,7 +506,16 @@ plt.savefig("../charts/03_1_revenue_vs_profit_trend.png")
 plt.show()"""
     ),
     new_markdown_cell(
-        """### กราฟ 3.2 — Seller Cost Burden Breakdown
+        """### มุมมอง Ecosystem รวม (W4): เปรียบเทียบเฉพาะ Marketplace vs. รวมธุรกิจขนส่ง SPX Express
+เพื่อให้เห็นภาพรวมทรัพยากรที่แท้จริงของ Sea Group ในประเทศไทย ตารางด้านล่างเปรียบเทียบงบการเงินเฉพาะ **บจก. ช้อปปี้ (ประเทศไทย)** กับภาพรวมเมื่อรวม **บจก. เอสพีเอ็กซ์ เอ็กซ์เพรส (ประเทศไทย)** (SPX Express):
+
+| นิติบุคคลในประเทศไทย (DBD Filing) | รายได้รวม ปี 2023 (ลบ.) | กำไรสุทธิ ปี 2023 (ลบ.) | รายได้รวม ปี 2024 (ลบ.) | กำไรสุทธิ ปี 2024 (ลบ.) | รายได้รวม ปี 2025 (ลบ.) | กำไรสุทธิ ปี 2025 (ลบ.) | บทบาทเชิงกลยุทธ์ |
+|---|---|---|---|---|---|---|---|
+| **1. บจก. ช้อปปี้ (ประเทศไทย)** *(Marketplace)* | 29,476 | +2,165 | 49,964 | +4,630 | 88,387 | +2,756 (-40.5%) | แพลตฟอร์มหลัก (รับแรงกดดันจากการอุดหนุนคูปองและ Live) |
+| **2. บจก. เอสพีเอ็กซ์ เอ็กซ์เพรส (ประเทศไทย)** *(Logistics)* | 16,608 | +35 | 23,499 | +469 (+1,240%) | *เติบโตตามปริมาณพัสดุ* | *เป็นบวกต่อเนื่อง* | **Operational Moat** ที่ช่วยลดต้นทุนจัดส่งต่อชิ้นและสร้างกำไรเสริม |
+| **รวม Ecosystem (Marketplace + SPX Express ปี 2024)** | **46,084** | **+2,200** | **73,463** | **+5,099** | — | — | พิสูจน์ว่า SPX Express คือสินทรัพย์เชิงโครงสร้างที่ทำกำไรจริง |
+
+### กราฟ 3.2 — Seller Cost Burden Breakdown
 - **สื่ออะไร:** ผู้ขายรายเล็กแบกต้นทุนรวมบนแพลตฟอร์มสูงถึง **34.7%** ของยอดขาย (เหลือกำไรสุทธิเพียง ~8%) หาก Shopee บีบเก็บค่าธรรมเนียมเพิ่มเพื่อชดเชยกำไรที่ลดลง จะเกิดความเสี่ยงที่ผู้ขายรายย่อยย้ายหนีออกจากระบบนิเวศ"""
     ),
     new_code_cell(
@@ -503,7 +523,7 @@ plt.show()"""
 
 tiers = seller_df["seller_tier"].tolist()
 x = np.arange(len(tiers))
-width = 0.46
+width = 0.44
 
 components = [
     ("commission_pct", "ค่าคอมมิชชัน (GP)", "#EE4D2D"),
@@ -519,7 +539,9 @@ for col, label, color in components:
     bars = ax.bar(x, vals, width, bottom=bottom, label=label, color=color, edgecolor="#FFFFFF", linewidth=0.8, zorder=3)
     for i, v in enumerate(vals):
         if v >= 3.0:
-            ax.text(x[i], bottom[i] + v/2, f"{v:.1f}%", ha="center", va="center",
+            # Shift text slightly left on bars 1 & 2 if near the net margin marker
+            x_text = x[i] - 0.08 if (i in [1, 2] and col in ["ads_pct", "payment_fee_pct"]) else x[i]
+            ax.text(x_text, bottom[i] + v/2, f"{v:.1f}%", ha="center", va="center",
                     fontsize=9.5, fontweight="bold", color="#FFFFFF" if color in ["#EE4D2D", "#F97316"] else "#111827")
     bottom += vals
 
@@ -527,13 +549,15 @@ for i, tot in enumerate(seller_df["total_cost_pct"]):
     ax.text(x[i], tot + 1.0, f"ภาระต้นทุนรวม: {tot:.1f}%",
             ha="center", va="bottom", fontsize=10.5, fontweight="bold", color="#991B1B")
 
-ax.plot(x, seller_df["seller_net_margin_pct"], color="#15803D", marker="D", markersize=9,
-        linewidth=2.5, linestyle="--", label="กำไรสุทธิผู้ขายโดยประมาณ (% ของยอดขาย)", zorder=5)
+# Plot Net Seller Margin marker slightly offset to the right edge of each bar so it never covers bar text
+x_margin = x + 0.14
+ax.plot(x_margin, seller_df["seller_net_margin_pct"], color="#15803D", marker="D", markersize=8.5,
+        linewidth=2.4, linestyle="--", label="กำไรสุทธิผู้ขายโดยประมาณ (% ของยอดขาย)", zorder=5)
 
 for i, m in enumerate(seller_df["seller_net_margin_pct"]):
     ax.annotate(
         f"กำไรสุทธิร้านค้า ~{m:.1f}%",
-        xy=(x[i], m), xytext=(x[i] + 0.27, m + 1.2),
+        xy=(x_margin[i], m), xytext=(x[i] + 0.28, m - 0.5),
         fontsize=9.5, fontweight="bold", color="#15803D",
         bbox=dict(boxstyle="round,pad=0.25", facecolor="#ECFDF5", edgecolor="#15803D"),
         arrowprops=dict(arrowstyle="->", color="#15803D", lw=1.2),
@@ -544,14 +568,14 @@ ax.set_xticks(x)
 ax.set_xticklabels(tiers, fontsize=10.5, fontweight="bold")
 ax.set_ylabel("สัดส่วนต่อยอดขายรวม (% of Gross Sales)", fontweight="bold")
 ax.set_ylim(0, 44)
-ax.set_xlim(-0.45, 2.75)
+ax.set_xlim(-0.45, 2.82)
 ax.legend(loc="upper right", fontsize=9.5)
 
 chart_style.add_title_and_source(
     ax,
     title="ผู้ขายรายเล็กแบกต้นทุนแพลตฟอร์มสูงถึง 34.7% ของยอดขาย เหลือกำไรสุทธิเพียง ~8%",
     subtitle="โครงสร้างภาระต้นทุนผู้ขายบนแพลตฟอร์มแยกตามขนาดร้านค้า (% ของยอดขาย) เทียบกับกำไรสุทธิที่ผู้ขายได้รับจริง",
-    source_text="Shopee Seller Centre Fee Schedule, FlowAccount E-Commerce Benchmark & การประเมินโครงสร้างต้นทุนผู้ขาย"
+    source_text="Shopee Seller Centre & FlowAccount | Note: Estimated from published fee structure; actual burden varies by category and seller size"
 )
 
 plt.savefig("../charts/03_2_seller_cost_burden.png")
@@ -638,8 +662,16 @@ display(heat_df)
 display(cost_df)"""
     ),
     new_markdown_cell(
-        """### กราฟ 4.1 — Regulatory Impact Heatmap
-- **สื่ออะไร:** ผู้ขาย Cross-border จากจีนและ Temu ได้รับผลกระทบหนักที่สุด (ระดับ 5/5) จากกำแพงภาษี VAT นำเข้าและมาตรการคุมมาตรฐานสินค้า ขณะที่ผู้ขายในประเทศและโครงการ OTOP ของ Shopee ได้รับอานิสงส์เชิงโครงสร้าง"""
+        """### กราฟ 4.1 — Regulatory Impact Heatmap & เกณฑ์การประเมิน (Scoring Criteria)
+- **สื่ออะไร:** ผู้ขาย Cross-border จากจีนและ Temu ได้รับผลกระทบหนักที่สุด (ระดับ 5/5) จากการยกเลิกข้อยกเว้นภาษีนำเข้า 1,500 บาทและการเก็บ VAT 7% ทุกราคา ขณะที่ผู้ขายในประเทศและโครงการ OTOP ของ Shopee ได้รับอานิสงส์เชิงโครงสร้าง
+
+| ระดับคะแนน (Impact Score) | ความหมายเชิงโครงสร้าง (Definition) | ตัวอย่างผลกระทบจริง |
+|---|---|---|
+| **5 = กระทบหนักสุด (Severe Hit)** | กระทบต้นทุนหลักหรือโมเดลธุรกิจโดยตรง (>5% ของยอดขาย หรือต้องรื้อระบบหลัก) | สินค้า Cross-border & Temu โดนเก็บภาษีตั้งแต่บาทแรก; TikTok Shop ต้องปรับระบบ Algorithm ตามเกณฑ์ TCCT |
+| **4 = กระทบสูง (High Pressure)** | จำกัดเพดานการทำกำไรหรือต้องเปิดเสรีระบบนิเวศ | Shopee & TikTok Shop ถูกเพดานค่าธรรมเนียมและข้อห้ามผูกขาดขนส่ง (Logistics Choice) |
+| **3 = ปานกลาง (Moderate)** | ต้องปรับปรุงกระบวนการทำงานหรือเอกสารสัญญาให้โปร่งใส | การแจ้งล่วงหน้าก่อนปรับค่าบริการตามเกณฑ์ TCCT |
+| **2 = กระทบต่ำ (Low Impact)** | กระทบเฉพาะส่วนน้อยของพอร์ตโฟลิโอ | Shopee มีสัดส่วนสินค้าในประเทศสูง จึงกระทบจากภาษีนำเข้าน้อยกว่าคู่แข่งข้ามชาติ |
+| **1 = ได้เปรียบ/หนุน (Tailwind)** | ได้รับประโยชน์โดยตรงจากความเท่าเทียมด้านภาษีและการลดค่า GP | ผู้ขาย Local SME และร้านค้า OTOP (เรต GP 4%) มีความสามารถในการแข่งขันสูงขึ้น |"""
     ),
     new_code_cell(
         """fig, ax = plt.subplots(figsize=(11.2, 6.0))
@@ -781,8 +813,15 @@ display(opt_df)
 display(scen_df)"""
     ),
     new_markdown_cell(
-        """### กราฟ 5.1 — Impact vs Feasibility Matrix (Bubble 2x2)
-- **สื่ออะไร:** ทางเลือก **(1) ป้องกันฐาน Intent-based** และ **(3) ขยายฐาน Local/OTOP รับลมหนุนรัฐ** อยู่ใน Quadrant *"โอกาสสูง + ทำได้จริง"* โดยใช้งบลงทุนต่ำกว่าและมีความเสี่ยงต่ำกว่า ขณะที่ **(4) Quick Commerce** ใช้เงินทุนมหาศาลแต่มีความเป็นไปได้ต่ำและเสี่ยงสูง"""
+        """### กราฟ 5.1 — Impact vs Feasibility Matrix (Bubble 2x2) & เกณฑ์การให้คะแนน
+- **สื่ออะไร:** ทางเลือก **(1) ป้องกันฐาน Intent-based** และ **(3) ขยายฐาน Local/OTOP รับลมหนุนรัฐ** อยู่ใน Quadrant *"โอกาสสูง + ทำได้จริง"* โดยใช้งบลงทุนต่ำกว่าและมีความเสี่ยงต่ำกว่า ขณะที่ **(4) Quick Commerce** ใช้เงินทุนมหาศาลแต่มีความเป็นไปได้ต่ำและเสี่ยงสูง
+
+| ทางเลือกเชิงกลยุทธ์ (Strategic Option) | ความพร้อมสินทรัพย์เดิม (40%) | ความเร็วเห็นผล (30%) | ความสอดคล้องกฎรัฐ (30%) | **รวม Feasibility** | ขนาด GMV ที่ปกป้อง/เพิ่ม (50%) | การหนุน Net Margin (50%) | **รวม Impact** |
+|---|---|---|---|---|---|---|---|
+| **(1) Protect Intent Base (Search+Mall+SPX)** | 9.0 (มี SPX & Mall แล้ว) | 8.5 (ทำได้ทันที) | 8.0 (ไม่ขัดเกณฑ์ GP) | **8.5** | 9.2 (ฐานหลัก 45% GMV) | 8.4 (รักษากำไรหลัก) | **8.8** |
+| **(2) Selective Affiliate / Live** | 7.5 (มีฟีเจอร์ Live แล้ว) | 7.5 (ปรับเงื่อนไขไว) | 6.0 (ต้องระวังเพดานค่าบริการ) | **7.0** | 7.8 (กันลูกค้าไหลไป TikTok) | 7.4 (เน้นเฉพาะหมวดกำไรสูง) | **7.6** |
+| **(3) Regulatory Tailwind / OTOP 4%** | 8.5 (มี MOU พช. แล้ว) | 8.5 (เริ่มรับสมัครแล้ว) | 9.5 (สอดรับนโยบายรัฐ 100%) | **8.8** | 7.6 (ดึงผู้ขายไทยทดแทนจีน) | 8.2 (ได้เครดิตรัฐ+ประหยัด Subsidy) | **7.9** |
+| **(4) Full-Scale Quick Commerce** | 3.0 (ต้องสร้างคลังย่อยใหม่) | 3.5 (ใช้เวลา >12 เดือน) | 4.0 (เสี่ยงถูกตรวจสอบการอุดหนุน) | **3.4** | 7.0 (ตลาดส่งด่วนโตแต่แข่งดุ) | 5.8 (เผาเงินแข่ง 7-Eleven/Grab) | **6.4** |"""
     ),
     new_code_cell(
         """fig, ax = plt.subplots(figsize=(10.8, 6.4))
@@ -1043,7 +1082,25 @@ plt.savefig("../charts/06_2_expected_impact_summary.png")
 plt.show()"""
     ),
     new_markdown_cell(
-        """> **Insight ของ Section 6:** *"คำตอบของ Shopee ในอีก 18 เดือนไม่ใช่การเผาเงินแลก GMV ทุกสมรภูมิ แต่คือการจัดสรรทรัพยากรแบบ 50 : 30 : 20 — 50% ปกป้องฐาน Intent & SPX Express, 30% เปลี่ยนกฎรัฐเป็น OTOP/Local Moat, และ 20% เจาะ Selective Affiliate เฉพาะหมวดกำไรสูง"*"""
+        """### การวิเคราะห์เพิ่มเติม (W1 & W3): สมการฟื้นฟูกำไร (Net Margin Recovery Bridge) และการรับมือคู่แข่งแก้เกม
+
+#### 1. 18-Month Net Profit Margin Recovery Bridge (`3.1% -> 5.6%`)
+| องค์ประกอบ (P&L Margin Driver) | ผลกระทบต่อ Net Margin (% ของรายได้) | คิดเป็นเม็ดเงินโดยประมาณ (ล้านบาท/ปี บนฐานรายได้ ~95,000 ลบ.) | กลไกการขับเคลื่อน (Execution Mechanism) |
+|---|---|---|---|
+| **Baseline Net Margin ปี 2025 (DBD)** | **3.12%** | **~2,756 ลบ.** | ฐานกำไรสุทธิหลังเผาเงินสู้ศึกส่วนแบ่งตลาดในปี 2025 |
+| **(+) เลิกหว่านคูปอง Live แบบปูพรม เปลี่ยนเป็น Surgical Affiliate** | **+1.10 pp** | **+1,045 ลบ.** | จำกัดเพดาน Subsidy ต่อออเดอร์ และโฟกัสเฉพาะหมวด Beauty/Fashion ที่กำไรสูง |
+| **(+) ขยายสัดส่วนรายได้โฆษณา (Shopee Ads) & Shopee Mall VAS** | **+0.80 pp** | **+760 ลบ.** | เพิ่ม High-Margin Advertising Take-rate จากแบรนด์และร้านค้า OTOP ที่ได้รับเครดิตสมทบ |
+| **(+) Economy of Scale ของเครือข่ายจัดส่ง SPX Express** | **+0.60 pp** | **+570 ลบ.** | เพิ่มความหนาแน่นพัสดุต่อรอบวิ่ง (Drop Density) ลดต้นทุนจัดส่งต่อชิ้นลง 8–12% |
+| **(=) Target Net Margin ภายใน 18 เดือน** | **5.62% (>5.5%)** | **~5,130 ลบ.** | **ฟื้นฟูฐานกำไรกลับสู่ระดับแข็งแกร่ง พร้อมรักษาส่วนแบ่ง Intent-based >52%** |
+
+#### 2. Competitive Counter-Moves & Mitigation (ถ้าคู่แข่งแก้เกม Shopee จะรับมืออย่างไร?)
+| ฉากทัศน์การแก้เกมของคู่แข่ง (Competitor Counter-Move) | ผลกระทบที่อาจเกิดขึ้น | กลไกป้องกันและตอบโต้ของ Shopee (Mitigation & Moat Defense) |
+|---|---|---|
+| **1. TikTok Shop เปิดตัวแคมเปญดึงร้าน OTOP / Local SME ด้วยเรต GP ต่ำบ้าง** | ร้านค้า OTOP บางส่วนเริ่มเปิดหน้าร้านควบ 2 แพลตฟอร์ม (Multi-homing) | สินค้า OTOP/วิสาหกิจชุมชนส่วนใหญ่เป็นสินค้าค้นหาตามความต้องการ (Search/Catalog) ไม่ใช่สินค้าไลฟ์สดทุกวัน Shopee จึงล็อกร้านค้าด้วย **ระบบจัดการสต๊อกเดียว + เครดิตโฆษณา Shopee Ads + การรับพัสดุถึงแหล่งผลิตของ SPX Express** |
+| **2. TikTok Shop จับมือขนส่ง 3PL (เช่น J&T / Flash) ทำ Next-Day Delivery แข่ง** | ช่องว่างความเร็วจัดส่งในกรุงเทพฯ และปริมณฑลแคบลง | การใช้ขนส่งภายนอก (3PL) มีต้นทุนประสานงานและคุม SLA ยากกว่า **In-house Logistics (SPX Express)** ที่เชื่อมตรงกับระบบคลังสินค้าและพยากรณ์คำสั่งซื้อล่วงหน้าของ Shopee Mall |
+| **3. Temu ปรับโมเดลมาเช่าคลังสินค้าในไทย (Local-to-Local Warehouse)** | ลดเวลารอสินค้าจาก 5–7 วัน เหลือ 1–2 วันในกลุ่มสินค้าจีนราคาถูก | สินค้าที่นำเข้าคลังไทยล็อตใหญ่ต้องผ่านด่านศุลกากร ภาษีนำเข้า และมาตรฐาน **มอก. / อย.** อย่างเต็มรูปแบบ ทำให้ความได้เปรียบด้านราคาใต้ดินของ Temu หายไปโดยอัตโนมัติ |
+
+> **Insight ของ Section 6:** *"คำตอบของ Shopee ในอีก 18 เดือนไม่ใช่การเผาเงินแลก GMV ทุกสมรภูมิ แต่คือการจัดสรรทรัพยากรแบบ 50 : 30 : 20 — 50% ปกป้องฐาน Intent & SPX Express, 30% เปลี่ยนกฎรัฐเป็น OTOP/Local Moat, และ 20% เจาะ Selective Affiliate เฉพาะหมวดกำไรสูง"*"""
     ),
 ]
 

@@ -129,6 +129,62 @@
 
 ---
 
+## 7. Data Sources & Reconciliation
+
+> ตัวเลขในโปรเจ็คนี้มาจากหลายแหล่งที่มีฐานการคำนวณต่างกัน ตารางนี้แสดงค่าที่ใช้ แหล่งที่มา และเหตุผลที่เลือกใช้ เพื่อให้ผู้อ่านตรวจสอบย้อนกลับได้
+
+| # | Metric | ค่าที่ใช้ในโปรเจ็ค | Source | Base / Definition | ค่าที่พบจากแหล่งอื่น | หมายเหตุ / เหตุผลที่เลือก |
+|---|---|---|---|---|---|---|
+| 1 | Shopee GMV share 2025 (full year) | 51.8% ($15.9B) | Cube / Momentum Works | Platform GMV ไทย ปี 2025 | บางรายงานระบุ ~50% | ใช้ฐาน full-year 2025 — ระบุให้ชัดว่าไม่ใช่ H1 2026 |
+| 2 | TikTok Shop GMV share 2025 | 36.5% ($11.2B) | Cube / Momentum Works | เดียวกัน | บางรายงานระบุ 32% | ⚠️ ต้อง verify ว่าตัว 32% มาจากแหล่งใด — ถ้าต่างกันให้ระบุว่าทำไม |
+| 3 | Lazada GMV share 2025 | ต้องตรวจ — ถ้าใช้ $3.6B จากยอดรวม $30.7B = 11.7% | Cube | เดียวกัน | บางรายงานระบุ 18% | ⚠️ จุดที่ต้องแก้: 51.8+36.5+18 = 106.3% เกิน 100 — แสดงว่า 18% มาจากแหล่ง/ฐานอื่น ต้องเลือกแหล่งเดียวและทำให้รวมได้ 100% |
+| 4 | GMV share H1 2026 | Shopee 46% / TikTok Shop 46% | Cube | H1 2026 | — | ใช้เป็นหลักฐาน "two-pole market" |
+| 5 | GMV share Q2 2026 | TikTok Shop 48% / Shopee 45% | Cube | Q2 2026 | — | จุดที่ TikTok Shop แซงครั้งแรก — ใช้เป็น annotation ในกราฟ 1.1 |
+| 6 | User penetration | Shopee 89% / TikTok 71% / Lazada 66% | รายงานข่าว | % ของผู้ใช้อินเทอร์เน็ต (multi-select) | — | ⚠️ ห้ามใช้ปนกับ GMV share — เป็นคนละ metric (คนตอบเลือกได้หลายแพลตฟอร์ม) ควรมี footnote กำกับในกราฟ |
+| 7 | Shopee Thailand revenue 2025 | 88,300 ล้านบาท | DBD / รายงานข่าว | งบการเงินบริษัทไทย | — | ใช้ฐานบริษัทจดทะเบียนไทย (ไม่รวม regional) |
+| 8 | Shopee Thailand profit 2025 | 2,700 ล้านบาท (-40% YoY) | DBD / รายงานข่าว | งบการเงิน | — | ใช้คู่กับ #9 เพื่อแสดง trend |
+| 9 | Shopee Thailand profit 2024 | 4,630 ล้านบาท | DBD / รายงานข่าว | งบการเงิน | — | ฐานเปรียบเทียบ |
+| 10 | TikTok Shop loss 2024 | 3,670 ล้านบาท | รายงานข่าว | ประมาณการจากสื่อ | — | ⚠️ ระบุว่าไม่ใช่ตัวเลขจากงบการเงินที่ตรวจสอบแล้ว |
+| 11 | TikTok Shop growth H1 2026 | +116% YoY | Cube | GMV H1 2026 vs H1 2025 | — | ใช้ในกราฟ 1.2 |
+| 12 | Seller total cost burden | 34.7% (illustrative estimate) | คำนวณเอง จาก fee structure | commission 12.5% + ads 8.5% + logistics 6.0% + promo 4.5% + payment 3.21% | บางรายงานระบุ range 30–35% | ⚠️ ต้องใส่ footnote ในกราฟ 3.2: "Estimated from published fee structure; actual burden varies by category and seller size" |
+| 13 | Shopee GP rate | 19.26% → 8.03–13.91% | ประกาศกระทรวงพาณิชย์ | ช่วงมาตรการ 6 เดือน (ธ.ค. 2026 – พ.ค. 2027) | — | ใช้ในกราฟ 3.3 — ระบุช่วงเวลาให้ชัด |
+| 14 | TCCT guideline | published 24 มี.ค. 2026 / effective 25 มี.ค. 2026 | TCCT | 6 ด้าน | — | ระบุวันที่ให้เป๊ะ ไม่ใช่แค่ "มี.ค. 2026" |
+| 15 | Cross-border tax | ยกเลิก duty exemption 1,500 บาท ตั้งแต่ 1 ม.ค. 2026 + VAT 7% ทุกราคา | กรมศุลกากร / ประกาศราชกิจจานุเบกษา | — | — | ⚠️ แก้ถ้อยคำ: ไม่ใช่แค่ "VAT 7%" แต่คือ "abolishment of 1,500-baht duty exemption" — เป็น structural change |
+| 16 | OTOP rate | 4% | ประกาศ Shopee + ภาครัฐ | ผู้ขาย OTOP ที่ผ่านการรับรอง | — | ใช้เป็นหลักฐาน regulatory moat |
+
+> **กฎ:** หากตัวเลขใดในโปรเจ็คขัดกับตารางนี้ ให้ถือว่าตารางนี้เป็น source of truth — และหากพบว่าค่าจากแหล่งอื่นน่าเชื่อถือกว่า ให้อัปเดตทั้งตารางและกราฟที่เกี่ยวข้องพร้อมกัน
+
+---
+
+## 8. Early Warning Indicators
+
+> ข้อเสนอนี้ตั้งอยู่บนสมมติฐานที่อาจเปลี่ยนได้ ตารางนี้ระบุสัญญาณที่บ่งบอกว่าควรทบทวนแผน ก่อนที่ต้นทุนของการตัดสินใจผิดจะสูงเกินไป
+
+| # | Indicator | Baseline (ปัจจุบัน) | Trigger Threshold | สิ่งที่ต้องเปลี่ยนถ้า trigger | แหล่งติดตาม | ความถี่ |
+|---|---|---|---|---|---|---|
+| 1 | TikTok Shop unit economics | ยังขาดทุน (3.67B ปี 2024) | ประกาศ profitability หรือ positive unit economics ภายใน 12 เดือน | ทบทวนสมมติฐาน "TikTok Shop เผาเงิน" — อาจต้องยกระดับ Selective Attack เป็น 40% | งบการเงิน / ข่าว / รายงาน分析师 | รายไตรมาส |
+| 2 | ส่วนต่าง GMV share Shopee vs TikTok Shop | TikTok Shop นำ 3 pp (48 vs 45) | ห่างเกิน 5 pp ติดกัน 2 ไตรมาส | จาก "parity" → "structural loss of leadership" — ต้องเปลี่ยน 50:30:20 เป็น defensive emergency | Cube / Momentum Works | รายไตรมาส |
+| 3 | Shopee Thailand profit | 2.7B บาท | ต่ำกว่า 1.5B หรือติดลบ | Core Defense ล้มเหลว — ต้องตัด Selective Attack ทั้งหมดและ focus profitability | DBD / งบการเงิน | รายปี |
+| 4 | มาตรการลด GP | 6 เดือน (ธ.ค. 2026 – พ.ค. 2027) | ถูกขยายเกิน พ.ค. 2027 หรือกลายเป็นถาวร | Regulatory tailwind กลายเป็น permanent cost structure — ต้องประเมิน moat ของ OTOP ใหม่ | ประกาศกระทรวงพาณิชย์ | เมื่อมีประกาศ |
+| 5 | Temu GMV share ไทย | marginal (<2–3% ประมาณ) | เกิน 5% | ยกระดับจาก "watchlist" เป็น "active threat" — ต้องเพิ่ม resource ด้านราคา | รายงานตลาด / MAU proxy | รายครึ่งปี |
+| 6 | การย้ายแพลตฟอร์มของผู้ขายรายใหญ่ | ไม่มีข้อมูล systematic | มีผู้ขาย top-tier ประกาศย้าย/ลดการขายบน Shopee มากกว่า 3 รายใน 1 ไตรมาส | Ecosystem risk กำลังเป็นจริง — ต้องเร่ง Seller Retention ก่อนกำหนด | ประกาศผู้ขาย / FB group ผู้ขาย / ข่าว | รายไตรมาส |
+| 7 | TCCT enforcement | ยังไม่มีคดี | TCCT เปิดกรณีสอบสวน Shopee เรื่องบังคับใช้ SPX / algorithm | SPX moat เสี่ยงถูก unbundle — ต้องเตรียมแผนสำรองด้านโลจิสติกส์ | ประกาศ TCCT | เมื่อมีเหตุการณ์ |
+| 8 | การรับสมัคร OTOP | เพิ่งเริ่ม | adoption ต่ำกว่าเป้า >50% หลัง 6 เดือน | Regulatory moat thesis อ่อนลง — ต้องหาช่องทางจูงใจผู้ขาย本土 ทางอื่น | Shopee Seller Centre / ข่าว | รายครึ่งปี |
+| 9 | ROI ของ Affiliate / KOS | ยังไม่วัด | CAC ผ่าน affiliate สูงกว่า organic >2 เท่า | Selective Attack ไม่คุ้ม — ตัดงบ 20% กลับไป Core Defense | Internal data (ถ้ามี) / benchmark อุตสาหกรรม | รายไตรมาส |
+| 10 | ต้นทุนผู้ขาย cross-border หลังภาษีใหม่ | คาดว่าเพิ่มขึ้น | ผู้ขาย cross-border ยังอยู่และดูดซับต้นทุนได้ (ไม่ย้ายออก) | Regulatory moat thesis อ่อนลง — VAT ไม่ได้กัดคู่แข่งเท่าที่คิด | รายงานตลาด / จำนวนผู้ขาย cross-border | รายครึ่งปี |
+
+> ตารางนี้ไม่ได้หมายความว่าแผนปัจจุบันผิด — แต่หมายความว่าแผนที่ดีต้องมีจุดที่พร้อมจะเปลี่ยน ไม่ใช่ยึดคำตอบเดิมจนหลักฐานชัดว่าไม่จริง
+
+---
+
+## 9. Data Limitations
+
+- ตัวเลข GMV จาก Cube เป็น estimation ไม่ใช่ตัวเลขทางการของแพลตฟอร์ม
+- ตัวเลขกำไร/ขาดทุนของ TikTok Shop มาจากสื่อ ไม่ได้ตรวจสอบจากงบการเงิน
+- ตัวเลขต้นทุนผู้ขาย 34.7% เป็น illustrative estimate จาก fee structure ที่ประกาศ publicly
+
+---
+
 ## Verified Public Data Sources (แหล่งข้อมูลสาธารณะที่ใช้อ้างอิง)
 
 การวิเคราะห์และกราฟทั้งหมดในโปรเจ็คนี้ปฏิบัติตาม **Data Policy (ใช้ข้อมูลสาธารณะจริง + ระบุแหล่งที่มาชัดเจน ไม่ใช้ Synthetic Dataset)** โดยมีรายละเอียดครบถ้วนใน [`data/raw/data_sources_and_notes.md`](./data/raw/data_sources_and_notes.md):
